@@ -1,0 +1,10 @@
+<h2>Alphabetical</h2>
+<ul>
+  <% @recipes.collect { |recipe| [recipe.title, recipe.id] }.sort.each do |title_id| %>
+  <li>
+    <a href="/recipes/<%= title_id[1] %>">
+      <%= title_id[0] %>
+    </a>  
+  <li>
+  <% end%>  
+</ul>
