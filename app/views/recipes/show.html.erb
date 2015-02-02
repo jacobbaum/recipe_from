@@ -1,0 +1,90 @@
+  <div class="row">
+    <div class="col-sm-12 recipe-title border-bottom">
+      <h2><%= @recipe.title %></h2>
+    </div>
+  </div>
+
+  <div class="row">  
+    <div class="col-sm-3 recipe-heading padding-correction">
+      <h3>Ingredients:</h3>
+    </div>
+    <div class="col-sm-4 padding-correction">  
+      <ul>
+      <% @recipe.ingredients.each_index do |i| %>
+        <li>
+          <%= @recipe.ingredients[i] %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+    <div class="col-sm-5">
+      <div class="recipe-image">
+        <a href="/images//<%= @recipe.image %>" target="_blank">
+          <img class="little-image" src="/images/<%= @recipe.image %>">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3 recipe-heading padding-correction">
+      <h3>Directions:</h3>
+    </div>
+    <div class="col-sm-9 padding-correction">
+      <ul>
+      <% @recipe.directions.each_index do |i| %>
+        <li>
+          - <%= @recipe.directions[i] %>
+        </li>
+      <% end %>  
+      </ul>
+    </div>  
+  </div>
+
+  <% unless @recipe.cooking_time == nil %>
+  <div class="row">
+    <div class="col-sm-3 recipe-heading padding-correction">
+      <h3>Cooking time:</h3>
+    </div>
+    <div class="col-sm-9 padding-correction padding-correction">  
+      <ul>
+        <li><%= @recipe.cooking_time %></li>
+      <ul>
+    </div>  
+  </div>  
+  <% end %>
+
+  <div class="row">
+    <div class="col-sm-3 recipe-heading padding-correction">
+      <h3>Recipe from:</h3>
+    </div>
+    <div class="col-sm-9 padding-correction">  
+      <ul>
+        <li><a href="/sources/<%= @recipe.source.id %>"><%= @recipe.source %></a></li>
+      </ul>
+    </div>  
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3 recipe-heading padding-correction">
+      <h3 class="recipe-source">Category:</h3>
+    </div>
+    <div class="col-sm-9 padding-correction">  
+      <ul class="recipe-source">
+        <li><%= @recipe.category %></li>
+      </ul>
+    </div>  
+  </div>
+
+  <% unless @recipe.notes == nil %>
+  <div class="row">
+    <div class="col-sm-3 recipe-heading padding-correction">
+      <h3>Notes:</h3>
+    </div>
+    <div class="col-sm-9 padding-correction padding-correction">  
+      <ul>
+        <li><%= @recipe.notes %></li>
+      <ul>
+    </div>  
+  </div>  
+  <% end %>
