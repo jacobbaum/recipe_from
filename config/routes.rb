@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
 
-root 'static_pages#home'
-get '/recipes', to: 'recipes#index'
-get '/recipes/alphabetical', to: 'recipes#alphabetical'
-get '/recipes/by-category', to: 'recipes#by_category'
-get '/recipes/by-source', to: 'recipes#by_source'
-get '/recipes/:id', to: 'recipes#show'
-get '/sources/:id', to: 'sources#show'
-get '/about', to: 'static_pages#about'
-
+root   'static_pages#home'
+get    '/recipes',                 to: 'recipes#index'
+get    'recipes/new',              to: 'recipes#new',            as: :new_recipe
+post   'recipes/',                 to: 'recipes#create'
+get    '/recipes/alphabetical',    to: 'recipes#alphabetical'
+get    '/recipes/by-category',     to: 'recipes#by_category'
+get    '/recipes/by-source',       to: 'recipes#by_source'
+get    '/recipes/:id',             to: 'recipes#show',           as: :recipe
+get    '/sources/:id',             to: 'sources#show'
+get    '/about',                   to: 'static_pages#about'
+get    'recipes/:id/edit',         to: 'recipes#edit',           as: :edit_recipe
+patch  'recipes/:id',              to: 'recipes#update'
+delete 'recipes/:id',              to: 'recipes#destroy'         
 end  
+
+  # Only gets need templates
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

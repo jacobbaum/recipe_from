@@ -1,3 +1,4 @@
+<% provide(:title, 'All Recipes by Source') %>
 <% @sources.each do |source| %>
   <h2><%= source.name %></h2>
   <% list = @recipes.select { |recipe| recipe.source.id==source.id } %>

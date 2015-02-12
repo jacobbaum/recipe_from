@@ -21,23 +21,23 @@ describe Recipe do
 
     describe 'title' do
       context 'should exist' do
-      before { recipe.title = nil }
-      it { should_not be_valid }
+        before { recipe.title = nil }
+        it { should_not be_valid }
       end
       context 'too long' do
-      before { recipe.title = title * 100 }
-      it { should_not be_valid }
+        before { recipe.title = title * 100 }
+        it { should_not be_valid }
       end
     end
 
     describe 'category' do
       context 'should exist' do
-      before { recipe.title = nil }
-      it { should_not be_valid }
+        before { recipe.title = nil }
+        it { should_not be_valid }
       end
       context 'too long' do
-      before { recipe.title = title * 100 }
-      it { should_not be_valid }
+        before { recipe.title = title * 100 }
+        it { should_not be_valid }
       end
     end
     

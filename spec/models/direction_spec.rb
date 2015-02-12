@@ -9,6 +9,18 @@ describe Direction do
 
   it { should respond_to(:direction) }
 
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validations' do
+
+    describe 'direction' do
+      context 'should exist' do
+        before { direction.direction = nil }
+        it { should_not be_valid }
+      end
+      context 'too long' do
+        before { direction.direction = 'dir' * 100 }
+        it { should_not be_valid }
+      end
+    end
+  end
 end
 

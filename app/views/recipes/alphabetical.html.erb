@@ -1,3 +1,4 @@
+<% provide(:title, 'All Recipes') %>
 <h2>Alphabetical</h2>
 <ul>
   <% @recipes.collect { |recipe| [recipe.title, recipe.id] }.sort.each do |title_id| %>

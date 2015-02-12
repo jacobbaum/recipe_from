@@ -12,5 +12,28 @@ describe Source do
   it { should respond_to(:description) }
   it { should respond_to(:image) }
 
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe 'validations' do
+
+    describe 'name' do
+      context 'should exist' do
+        before { source.name = nil }
+        it { should_not be_valid }
+      end
+      context 'too long' do
+        before { source.name = 'Jim' * 100 }
+        it { should_not be_valid }
+      end
+    end
+    describe 'description' do
+      context 'should exist' do
+        before { source.description = nil }
+        it { should_not be_valid }
+      end
+      context 'too long' do
+        before { source.description = 'An okay guy. A passable cook.' * 100 }
+        it { should_not be_valid }
+      end
+    end
+  end
 end

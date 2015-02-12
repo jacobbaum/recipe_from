@@ -1,5 +1,3 @@
-  <% provide(:title, @recipe.title) %>
-
   <div class="row">
     <div class="col-sm-12 recipe-title border-bottom">
       <h2><%= @recipe.title %></h2>
@@ -11,9 +9,13 @@
       <h3>Ingredients:</h3>
     </div>
     <div class="col-sm-4 padding-correction">  
-      
-<!-- ingredients -->
-
+      <ul>
+      <% @recipe.ingredients.each_index do |i| %>
+        <li>
+          <%= @recipe.ingredients[i] %>
+        </li>
+      <% end %>
+      </ul>
     </div>
     <div class="col-sm-5">
       <div class="recipe-image">
@@ -29,9 +31,13 @@
       <h3>Directions:</h3>
     </div>
     <div class="col-sm-9 padding-correction">
-
-<!-- directions -->
-
+      <ul>
+      <% @recipe.directions.each_index do |i| %>
+        <li>
+          - <%= @recipe.directions[i] %>
+        </li>
+      <% end %>  
+      </ul>
     </div>  
   </div>
 
@@ -53,9 +59,9 @@
       <h3>Recipe from:</h3>
     </div>
     <div class="col-sm-9 padding-correction">  
-
-<!-- source -->
-
+      <ul>
+        <li><a href="/sources/<%= @recipe.source.id %>"><%= @recipe.source %></a></li>
+      </ul>
     </div>  
   </div>
 

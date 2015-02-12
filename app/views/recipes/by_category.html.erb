@@ -1,7 +1,8 @@
+<% provide(:title, 'All Recipes by Category') %>
 <% categories = @recipes.map { |recipe| recipe.category }.uniq %>
 <% categories.each do |category| %>
   <h2><%= category %></h2>
-  <% list = Collection.all.select { |recipe| recipe.category==category } %>
+  <% list = @recipes.select { |recipe| recipe.category==category } %>
   <ul>
   <% list.collect do |recipe| %>
     <li><a href="/recipes/<%= recipe.id %>"><%= recipe.title  %></a></li>

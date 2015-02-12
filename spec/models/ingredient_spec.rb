@@ -12,7 +12,22 @@ describe Ingredient do
   it { should respond_to(:measurement_unit) }
   it { should respond_to(:name) }
 
-
-
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validations' do
+    describe 'measurement' do
+      context 'should exist' do
+        before { ingredient.measurement = nil }
+        it { should_not be_valid }
+      end
+    end
+    describe 'name' do
+      context 'should exist' do
+        before { ingredient.name = nil }
+        it { should_not be_valid }
+      end
+      context 'too long' do
+        before { ingredient.name = 'egg' * 100 }
+        it { should_not be_valid }
+      end
+    end
+  end
 end

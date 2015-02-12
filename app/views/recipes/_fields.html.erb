@@ -1,0 +1,23 @@
+<%= form_for(@recipe) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, autofocus: true %>
+
+  <br>
+  <%= f.label :cooking_time %>
+  <%= f.text_field :cooking_time %>
+
+  <br>
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+
+  <%= f.label :notes %>
+  <%= f.text_field :notes %>
+
+  <%= f.label :image, 'Path to Image File' %>
+  <%= f.text_field :image %>
+
+  <br>
+  <%= f.submit 'Save' %>
+<% end %>
